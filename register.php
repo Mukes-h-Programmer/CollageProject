@@ -72,7 +72,7 @@ if(empty($username_err) && empty($password_err) && empty($confirm_password_err))
         mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
 
         $param_username = $username;
-        $param_password = password_hash($password, PASSWORD_DEFAULT);dd
+        $param_password = password_hash($password, PASSWORD_DEFAULT);
 
         //Try to execute the query
         if(mysqli_stmt_execute($stmt)){
@@ -109,19 +109,18 @@ mysqli_close($conn);
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+  <ul class="navbar-nav">
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="/register.php">Register</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" href="login.php">Login</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contact us</a>
-      </li>
+     
+    
     </ul>
   </div>
 </nav>
@@ -133,7 +132,7 @@ mysqli_close($conn);
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Username</label>
-      <input type="text" class="form-control" name = "username" id="inputEmail4" placeholder="Email">
+      <input type="text" class="form-control" name = "username" id="inputEmail4" placeholder="Username">
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Password</label>
@@ -144,7 +143,7 @@ mysqli_close($conn);
       <label for="inputPassword4">confrim Password</label>
       <input type="password" class="form-control" name = "confirm_password" id="inputPassword" placeholder="Password">
     </div>
-  <div class="form-group">
+  <!-- <div class="form-group">
     <label for="inputAddress2">Address 2</label>
     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
@@ -152,26 +151,26 @@ mysqli_close($conn);
     <div class="form-group col-md-6">
       <label for="inputCity">City</label>
       <input type="text" class="form-control" id="inputCity">
-    </div>
-    <div class="form-group col-md-4">
+    </div> -->
+    <!-- <div class="form-group col-md-4">
       <label for="inputState">State</label>
       <select id="inputState" class="form-control">
         <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
+        <option>...</option> -->
+      <!-- </select> -->
+    <!-- </div>
     <div class="form-group col-md-2">
       <label for="inputZip">Zip</label>
       <input type="text" class="form-control" id="inputZip">
-    </div>
-  </div>
+    </div> -->
+  <!-- </div>
   <div class="form-group">
     <div class="form-check">
       <input class="form-check-input" type="checkbox" id="gridCheck">
       <label class="form-check-label" for="gridCheck">
         Check me out
       </label>
-    </div>
+    </div> -->
   </div>
   <button type="submit" class="btn btn-primary">Sign in</button>
 </form>
