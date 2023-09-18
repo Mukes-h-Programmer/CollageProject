@@ -23,7 +23,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !=true){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type = "text/css" href="styles.css">
 
-    <title>PHP login system</title>
+    <title>Home</title>
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -75,13 +75,13 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !=true){
 <!-- main content -->
 <div class="btn1">
   <div class="bonafide1">
-    <a href = " " class="textclr" > APPLY FOR BONAFIDE </a>
+    <a href = "bonafide.php" class="textclr" > APPLY FOR BONAFIDE </a>
   </div>
   <div class="bonafide2">
-    <a href = " " class="textclr"   > ID CARD APPLICATION FORMAT</a>
+    <a href = "#" class="textclr"   > ID CARD APPLICATION FORMAT</a>
   </div>
   <div class="bonafide3">
-    <a href = " " class="textclr"  > RESULTS </a>
+    <a href = "#" class="textclr"  > RESULTS </a>
   </div>
 </div>
 
@@ -140,8 +140,10 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !=true){
 <!-- image slider end -->
 
 <div class = "conatainer mt-4"  >
- <h3><?php echo "Welcome  " . $_SESSION['username']?> You can now use this website</h3>
- <hr>
+  <br>  <br>  <br>
+ <!-- <h3><?php echo "Welcome  " . $_SESSION['username']?> </h3> -->
+ <br>
+
 
 </div>
 <!-- footer open -->

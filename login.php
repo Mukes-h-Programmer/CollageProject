@@ -69,20 +69,18 @@ if(empty($err)){
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <title>PHP login system</title>
+    <link rel="stylesheet" type = "text/css" href="styles.css">
+    <title>Login</title>
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Navbar</a>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
   <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
+      
       <li class="nav-item">
         <a class="nav-link" href="register.php">Register</a>
       </li>
@@ -96,25 +94,100 @@ if(empty($err)){
 </nav>
 
 <div class = "conatainer mt-4"  >
- <h3> Please login here</h3>
+ <h3 class="register"> Please login here</h3>
  <hr>
- <form action="" method = "post">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Username</label>
-    <input type="text" name = "username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
+<div class="clg" style = "margin: 0px 0px 0px 550px">
+<img  src="clg.png" height= "150px" >
+</div>
+ 
+
+  <?php
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+
+  if (empty($username) || empty($password)) {
+    echo '<p class="alert1"> All fields are required. </p>';
+} else {
+    $sql = "SELECT id, username, password FROM users WHERE username = '$username'";
+    $result = $conn->query($sql);
+
+    if ($result && $result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+        $hashed_password = $row['password'];  // Fetch the hashed password
+
+        if (password_verify($password, $hashed_password)) {
+          echo '<p class="alert1"> Username found. </p>';
+            // Password is correct
+            session_start();
+            $_SESSION['username'] = $username;
+            $_SESSION['id'] = $row['id'];
+            $_SESSION['loggedin'] = true;
+
+            header("location: welcome.php");
+            exit;
+        } else {
+            echo '<p class="alert1"> Incorrect username or password!</p>';
+        }
+    } else {
+        echo '<p class="alert1"> Incorrect username or password! </p>';
+    }
+}
+}
+
+?> 
+
+ <form action="" method = "post" class="rform">
+  <div class="form-columns ms">
+  <div class="form-group col-md-6">
+    <label class = "l" for="inputEmail4">Registeration no<span class="required">*</span>:</label>
+    <input type="text" name = "username" class="form-control usr" id="inputEmail4"  placeholder="Enter univ. reg. no">
   </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password"  name = "password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
+  <div class="form-group col-md-6">
+    <label class = "l" for="inputPassword4">Password<span class="required">*</span>:</label>
+    <input type="password"  name = "password" class="form-control ps" id="inputPassword4" placeholder="Enter Password">
   </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+  
+  <button type="submit" class="btn btnn btn-primary">Sign in</button>
 </form>
 </div>
  
+<!-- footer open -->
+
+<footer>
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h2>About Us</h2>
+        <p>Jamshedpur Co-operative College is a symbol of the painstaking efforts of Late M. D. Madan</p>
+      </div>
+
+      <div class="footer-section links">
+        <h2>Quick Links</h2>
+        <ul>
+          
+          <li><a href="#">About</a></li>
+          <li><a href="#">Admissions</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section contact">
+        <h2>Contact Us</h2>
+        <p>Email: cooperativecollegejsr@gmail.com</p>
+        <p>Phone: 10657-2228176</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2023 Jamshedpur Co-operative College. All rights reserved.
+    </div>
+    <script src="script.js"></script>
+  </footer>
+
+
+
+  <!-- footer close -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -9,7 +9,10 @@ $username_err = $password_err = $confirm_password_err = "";
 if($_SERVER['REQUEST_METHOD'] == "POST"){
 // Check if username is empty
 
+
 if(empty(trim($_POST["username"]))){
+
+
     $username_err = "Username cannot be blank";
 }
 else{
@@ -37,7 +40,7 @@ else{
         }
     }
 }
-mysqli_stmt_close($stmt);
+// mysqli_stmt_close($stmt);
 
 
 
@@ -99,22 +102,20 @@ mysqli_close($conn);
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <title>PHP login system</title>
+    <link rel="stylesheet" type = "text/css" href="styles.css">
+    <title>Registeration</title>
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Navbar</a>
+ 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
   <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
+      
       <li class="nav-item">
-        <a class="nav-link" href="/register.php">Register</a>
+        <a class="nav-link" href="register.php">Register</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="login.php">Login</a>
@@ -125,57 +126,86 @@ mysqli_close($conn);
   </div>
 </nav>
 
-<div class = "conatainer mt-4"  >
- <h3> Please register here</h3>
+
+<div class = "conatainer mt-4 "  >
+ <h3 class="register"> Please register here</h3>
  <hr>
-<form action="" method="post">
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Username</label>
-      <input type="text" class="form-control" name = "username" id="inputEmail4" placeholder="Username">
+
+ <?php
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $confirm_password = $_POST['confirm_password'];
+
+  if(empty($username) OR empty($password) OR empty($confirm_password)){
+    echo'<p class="alert1"> All fields are required! </p>';
+
+  }
+  elseif(trim($password) != trim($confirm_password)){
+    echo'<p class="alert1"> Password must match! </p>';
+
+  }
+}
+?>
+
+<form action="" method="post" class="rform" >
+  <div class="form-columns ms"> 
+  <div class="form-group col-md-6 ">
+      <label class = "l" for="inputEmail4">Registeration no<span class="required">*</span>:</label>
+      <input type="text" class="form-control usr" name = "username" id="inputEmail4" placeholder="Univ. reg. no">
     </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" name = "password" id="inputPassword4" placeholder="Password">
+    <div class="form-group col-md-6 ">
+      <label class = "l" for="inputPassword4">Password<span class="required">*</span>:</label>
+      <input type="password" class="form-control ps" name = "password" id="inputPassword4" placeholder="Password">
+    </div>
+
+  <div class="form-group col-md-6 ">
+      <label class = "l" for="inputPassword4">Confrim Password<span class="required">*</span>:</label>
+      <input type="password" class="form-control cps" name = "confirm_password" id="inputPassword4" placeholder="Password">
     </div>
   </div>
-  <div class="form-group col-md-6">
-      <label for="inputPassword4">confrim Password</label>
-      <input type="password" class="form-control" name = "confirm_password" id="inputPassword" placeholder="Password">
-    </div>
-  <!-- <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity">
-    </div> -->
-    <!-- <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option> -->
-      <!-- </select> -->
-    <!-- </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div> -->
-  <!-- </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Check me out
-      </label>
-    </div> -->
-  </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
+    
+
+  <button type="submit" class="btn btnn btn-primary">Sign up</button>
 </form>
 
 </div>
+
+<!-- footer open -->
+
+<footer>
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h2>About Us</h2>
+        <p>Jamshedpur Co-operative College is a symbol of the painstaking efforts of Late M. D. Madan</p>
+      </div>
+
+      <div class="footer-section links">
+        <h2>Quick Links</h2>
+        <ul>
+          
+          <li><a href="#">About</a></li>
+          <li><a href="#">Admissions</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section contact">
+        <h2>Contact Us</h2>
+        <p>Email: cooperativecollegejsr@gmail.com</p>
+        <p>Phone: 10657-2228176</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2023 Jamshedpur Co-operative College. All rights reserved.
+    </div>
+    <script src="script.js"></script>
+  </footer>
+
+
+
+  <!-- footer close -->
  
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

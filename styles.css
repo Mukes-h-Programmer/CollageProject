@@ -217,3 +217,164 @@ ul li a:hover {
 .textclr{
   color: #000;
 }
+
+
+/* Bonfide form  bomafide.php*/
+
+form{
+  display: flex;
+  flex-direction: column;
+  margin-top: 301px;
+  top: -164px;
+  position: relative;
+}
+
+input{
+  position: relative;
+  display: flex;
+}
+input[name="uname"] {
+  background-color: #e2e9eb;;
+  margin: 0px 505px 17px 491px;
+}
+input[name="fname"] {
+  background-color: #e2e9eb;;
+  margin: 0px 505px 17px 491px;
+}
+input[name="year"] {
+  background-color: #e2e9eb;;
+  margin: 0px 505px 17px 491px;
+}
+input[name="date"] {
+  background-color: #e2e9eb;;
+  margin: 0px 505px 17px 491px;
+}
+input[name="branch"] {
+  background-color: #e2e9eb;;
+  margin: 0px 505px 17px 491px;
+}
+input[name="clsrollno"] {
+  background-color: #e2e9eb;;
+  margin: 0px 505px 17px 491px;
+}
+input[name="sesion"] {
+  background-color: #e2e9eb;;
+  margin: 0px 505px 17px 491px;
+}
+input[name="fees"] {
+  background-color: #e2e9eb;;
+  margin: 0px 505px 17px 491px;
+}
+input[name="bankname"] {
+  background-color: #e2e9eb;;
+  margin: 0px 505px 17px 491px;
+}
+input[name="bankno"] {
+  background-color: #e2e9eb;;
+  margin: 0px 505px 17px 491px;
+}input[name="ifsc"] {
+  background-color: #e2e9eb;;
+  margin: 0px 505px 17px 491px;
+}
+
+input[name="submit"] {
+  background-color: #859397;
+  margin: 39px 912px -59px 897px;
+  color:white;
+}
+.required {
+  color: red;
+  margin-left: 5px;
+}
+
+.lbl{
+  position: relative;
+  display: flex;
+  margin: 0px 0px 0px 491px;
+}
+.ttl{
+  position: relative;
+  display: flex;
+  margin: 46px 0px -105px 742px;
+}
+
+.alrt1{
+  color: white;
+  position: relative;
+  display: flex;
+  z-index: 1;
+  top: 1055px;
+  left: 862px;
+  margin-right: 1722px;
+  background-color: #6f7c73
+}
+.alrt2{
+  top: -2px;
+    position: relative;
+    display: flex;
+    z-index: 1;
+    margin: -4px 0px 0px 865px;
+}
+
+/* Registration */
+.register{
+  display: flex;
+  position: relative;
+  padding: 10px 0px 0px 821px;
+
+}
+
+.rform{
+  align-items: center;
+  display: flex;
+  position: relative;
+
+}
+.usr{
+  margin: 0px 549px 31px 250px;
+
+  display: flex;
+  position: relative;
+  }
+.ps{
+  margin: 0px 549px 31px 250px;
+
+display: flex;
+position: relative;
+}
+
+.cps{
+  margin: 0px 549px 31px 250px;
+
+display: flex;
+position: relative;
+
+}
+.l{
+  margin: 0px 0px 0px 251px;
+  position: relative;
+  display: flex;
+
+
+}
+.ms{
+  margin: -81px 0px 25px 0px;
+}
+.btnn{
+  background-color: #555;
+  color: white;
+  border: 1px solid black;
+}
+.alert1{
+  margin: 29px 889px 0px 856px;
+    display: flex;
+    position: relative;
+    /* background-color: #d13b3b; */
+    color: #d11414;
+}
+
+/* login */
+.clg{
+  display: flex;
+  position: relative;
+}

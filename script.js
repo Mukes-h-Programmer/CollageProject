@@ -35,5 +35,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
   });
   
-// text slide
+
 
