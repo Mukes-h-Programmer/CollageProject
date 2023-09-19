@@ -331,8 +331,8 @@ input[name="submit"] {
 
 }
 .usr{
+  text-transform: uppercase;
   margin: 0px 549px 31px 250px;
-
   display: flex;
   position: relative;
   }
