@@ -152,7 +152,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   <div class="form-columns ms"> 
   <div class="form-group col-md-6 ">
       <label class = "l" for="inputEmail4">Registeration no<span class="required">*</span>:</label>
-      <input type="text" class="form-control usr" name = "username" id="inputEmail4" placeholder="Univ. reg. no">
+      <input type="text" class="form-control usr" name = "username" id="inputEmail4" style="text-transform: uppercase" placeholder="Univ. reg. no">
     </div>
     <div class="form-group col-md-6 ">
       <label class = "l" for="inputPassword4">Password<span class="required">*</span>:</label>

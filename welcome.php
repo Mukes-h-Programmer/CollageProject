@@ -46,7 +46,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !=true){
     <div class = "navbar-collapse collapse">
         <ul class = "navbar-nav ml-auto">
         <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/user--v1.png" alt="user--v1"/><?php echo "" . $_SESSION['username']?></a>
+        <a class="nav-link disabled" style="text-transform: uppercase" href="#" tabindex="-1" aria-disabled="true"><img width="24" height="24" src="https://img.icons8.com/material-two-tone/24/user.png" alt="user"/><?php echo "" . $_SESSION['username']?></a>
       </li>
 </ul>
 </div>

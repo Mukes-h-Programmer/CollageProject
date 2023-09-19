@@ -24,6 +24,8 @@ if(isset($_POST['submit'])){
     $bankno = $_POST['bankno'];
     $ifsc = $_POST['ifsc'];
 
+   
+    
     imagettftext($image, 25, 0, 670, 670, $color, $font, $name);
     imagettftext($image, 25, 0, 300, 725, $color, $font, $fname);
     imagettftext($image, 25, 0, 900, 725, $color, $font, $year);
@@ -38,13 +40,13 @@ if(isset($_POST['submit'])){
 
 
 
-    imagejpeg($image,"Certificates/mukesh.jpg");
+    // imagejpeg($image,"Certificates/mukesh.jpg");
 
 
-    $filename = "certificates/certificate_" . time() . ".png";
-    imagepng($image, $filename);
+    // $filename = "certificates/certificate_" . time() . ".png";
+    // imagepng($image, $filename);
 
-    imagedestroy($image);
+    // imagedestroy($image);
     
 
 }
@@ -87,7 +89,7 @@ if(isset($_POST['submit'])){
      <div class = "navbar-collapse collapse">
         <ul class = "navbar-nav ml-auto">
         <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/user--v1.png" alt="user--v1"/><?php echo "" . $_SESSION['username']?></a>
+        <a class="nav-link disabled" style="text-transform: uppercase"  href="#" tabindex="-1" aria-disabled="true"><img width="24" height="24" src="https://img.icons8.com/material-two-tone/24/user.png" alt="user"/><?php echo "" . $_SESSION['username']?></a>
       </li>
 </ul>
 </div> 
@@ -135,7 +137,22 @@ if(isset($_POST['submit'])){
     if($prepareStmt){
       mysqli_stmt_bind_param($stmt, "sssssssssss", $uname, $fname, $year, $date, $branch, $clsrollno, $sesion, $fees, $bankname, $bankno, $ifsc);
       mysqli_stmt_execute($stmt);
-      echo "<div class='alrt1'>You Applied successfully.</div>";
+
+
+      $lastInsertedId = $conn->insert_id;
+      $ref = "JCC/SW/" . $lastInsertedId;
+      
+      // ... (previous code)
+      
+      // Use the ID in imagettftext
+      imagettftext($image, 20, 0, 140, 420, $color, $font, $ref);
+      // imagejpeg($image,"Certificates/{$lastInsertedId}.jpg");
+     $filename = "certificates/{$lastInsertedId}.png";
+    imagepng($image, "certificates/{$lastInsertedId}.png");
+
+    imagedestroy($image);
+
+      echo "<div class='alrt1'>Application successful!.</div>";
     }else{
       die("Something went wrong");
     }
