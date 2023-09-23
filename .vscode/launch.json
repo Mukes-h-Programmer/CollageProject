@@ -1,0 +1,22 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+      
+        {
+            "name": "PHP Debug",
+            "type": "php",
+            "request": "launch",
+            "program": "${login}/xampp/htdocs/login/register.php",
+            "phpVersion": "7.4",  // Example PHP version
+            "cwd": "${login}",
+            "phpPath": "register.php",  // Add this line to specify the PHP executable path
+            "port": 9000
+        },
+        {
+            "php.debug.executablePath": "/register.php"
+        }
+    ]
+}
