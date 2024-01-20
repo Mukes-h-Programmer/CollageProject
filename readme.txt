@@ -8,5 +8,6 @@ register.php - allows user to register
 welcome.php - if user was able to login redirect him to welcome page
 logout.php - allows user to logout
 
-Registration Page with All Checks
+Registration Page with All Checks-
 
+![Registration page](https://github.com/mukesh-h/Bonafide-E-Certificate-Automation/assets/64356512/af2e6e16-1ac7-4047-a433-01b7bd6ea250)
